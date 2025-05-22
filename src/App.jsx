@@ -98,8 +98,8 @@ function App() {
       firstName: "",
       lastName: "",
       age: "",
-      bloodGroup: "",
-      gender: "",
+      bloodGroup: null,
+      gender: null,
     });
   }
 
@@ -112,57 +112,76 @@ function App() {
   return (
     <div className="container">
       <div className="col1">
+        <h2>{editMode ? "Edit User" : "Add New User"}</h2>
         <div className="forms">
-          <h2>{editMode ? "Edit User" : "Add New User"}</h2>
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="Enter first name"
-            value={userInfo.firstName}
-            onChange={handleChange}
-          />
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Enter last name"
-            value={userInfo.lastName}
-            onChange={handleChange}
-          />
-          <label htmlFor="age">Age:</label>
-          <input
-            type="text"
-            name="age"
-            placeholder="Enter age"
-            value={userInfo.age}
-            onChange={handleChange}
-          />
-          <label htmlFor="bloodGroup">Blood Group:</label>
-          <input
-            type="text"
-            name="bloodGroup"
-            placeholder="Enter blood group"
-            value={userInfo.bloodGroup}
-            onChange={handleChange}
-          />
-          <label htmlFor="gender">Gender:</label>
-          <input
-            type="text"
-            name="gender"
-            placeholder="Enter gender"
-            value={userInfo.gender}
-            onChange={handleChange}
-          />
-
-          {editMode ? (
-            <div className="button-group">
-              <button onClick={updateInfo}>Update User</button>
-              <button onClick={cancelEdit}>Cancel</button>
-            </div>
-          ) : (
-            <button onClick={addInfo}>Add a User</button>
-          )}
+          <div className="firstLine">
+            <label htmlFor="firstName">First Name:</label>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="Enter first name"
+              value={userInfo.firstName}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="lastName">Last Name:</label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Enter last name"
+              value={userInfo.lastName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="lastLine">
+            <label htmlFor="age">Age:</label>
+            <input
+              type="text"
+              name="age"
+              placeholder="Enter age"
+              value={userInfo.age}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="bloodGroup">Blood Group:</label>
+            <select
+              name="bloodGroup"
+              value={updateInfo.bloodGroup}
+              onChange={handleChange}
+              required
+            >
+              <option>-- Select BloodGroup -- </option>
+              <option value="O+ve">O+ve</option>
+              <option value="O+ve">AB+ve</option>
+              <option value="O+ve">B+ve</option>
+              <option value="O+ve">O-ve</option>
+              <option value="O+ve">AB-ve</option>
+              <option value="O+ve">B-ve</option>
+            </select>
+            <label htmlFor="gender">Gender:</label>
+            <select
+              name="gender"
+              value={updateInfo.gender}
+              onChange={handleChange}
+              required
+            >
+              <option>-- Select Gender --</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Trans">Trans</option>
+            </select>
+          </div>
+          <div className="buttonLine">
+            {editMode ? (
+              <div className="button-group">
+                <button onClick={updateInfo}>Update User</button>
+                <button onClick={cancelEdit}>Cancel</button>
+              </div>
+            ) : (
+              <button onClick={addInfo}>Add a User</button>
+            )}
+          </div>
         </div>
       </div>
       <div className="col2">

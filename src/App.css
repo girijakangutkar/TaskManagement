@@ -8,7 +8,7 @@
 .container {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-self: center;
   /* border: 1px solid #ccc; */
@@ -18,24 +18,48 @@
   display: flex;
   flex-direction: column;
   margin-left: 10%;
-  /* align-items: center; */
   margin-right: 10%;
   text-align: left;
 }
 
-.col1 {
+.firstLine,
+.lastLine,
+.buttonLine {
+  display: flex;
   width: 100%;
   /* border: 1px solid black; */
+  justify-content: left;
+  align-items: center;
+}
+
+.buttonLine {
+  justify-content: center;
+}
+
+.col1 {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.col1 h2 {
+  text-align: left;
+  font-size: 20px;
+  color: rgb(22, 8, 101);
 }
 
 .col2 {
   width: 100%;
-  margin: 25px;
-  /* border: 1px solid #ccc; */
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 table {
-  width: 100%;
+  width: 98%;
+  margin: 1%;
   border: 1px solid black;
   border-collapse: collapse;
   align-self: center;
@@ -46,26 +70,60 @@ td,
 th {
   border: 1px solid black;
   padding: 8px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-.forms input {
+th {
+  background-color: rgb(22, 8, 101);
+  color: white;
+}
+
+tr:nth-of-type(odd) {
+  background-color: rgba(64, 38, 214, 0.499);
+}
+
+tr:nth-of-type(even) {
+  background-color: rgb(106, 87, 215);
+}
+
+.forms input,
+select {
   width: 225px;
-  margin: 5px;
+  margin: 4px;
   padding: 5px;
+  color: rgb(22, 8, 101);
   align-items: center;
+  font-weight: 700;
 }
 
 .forms label {
-  text-align: left !important;
+  /* text-align: left !important; */
+  /* border: 1px solid black; */
+  text-align: center !important;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(22, 8, 101);
 }
 
 .forms button {
   width: 240px;
   margin-top: 15px;
   align-self: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(22, 8, 101);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+}
+
+button {
+  align-self: center;
   padding: 5px;
   border-radius: 10px;
-  background-color: rgb(24, 36, 173);
+  background-color: rgb(22, 8, 101);
   color: white;
   font-weight: bold;
   text-decoration: none;
