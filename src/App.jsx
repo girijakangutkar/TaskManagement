@@ -18,11 +18,11 @@ function App() {
     fetchData();
   }, []);
 
+  const FirebaseDB = import.meta.env.VITE_STORAGE_DATABASE;
+
   async function fetchData() {
     try {
-      const response = await axios.get(
-        `https://react-one-123a6-default-rtdb.asia-southeast1.firebasedatabase.app/users.json`
-      );
+      const response = await axios.get(`${FirebaseDB}`);
       if (response.data) {
         setInfo(
           Object.keys(response.data).map((key) => ({
